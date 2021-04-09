@@ -11,12 +11,7 @@ router.use('/:id', checkDatabase)
 router.get('/', (req, res, next) => {
   Action.get()
   .then(actions => {
-    if(actions.length > 0)
       res.status(200).json(actions)
-    else 
-      res.status(404).json({
-        message: 'No actions found'
-      })
   })
   .catch(err => next(err))
 })
