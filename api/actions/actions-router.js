@@ -11,7 +11,7 @@ router.use('/:id', checkDatabase)
 router.get('/', (req, res, next) => {
   Action.get()
   .then(actions => {
-      res.status(200).json(actions)
+    res.status(200).json(actions)
   })
   .catch(err => next(err))
 })

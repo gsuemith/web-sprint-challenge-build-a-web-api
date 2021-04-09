@@ -1,6 +1,5 @@
 const express = require('express')
 const Project = require('./projects-model')
-const Action = require('../actions/actions-model')
 const { checkDatabase, validateProject } = require('./projects-middleware')
 
 // Write your "projects" router here!
@@ -12,9 +11,6 @@ router.use('/:id', checkDatabase)
 router.get('/', (req, res, next) => {
   Project.get()
   .then(projects => {
-    projects.forEach(project => {
-      project.completed = project.completed ? true : false
-    })
     res.status(200).json(projects)
   })
   .catch(err => next(err))
@@ -36,7 +32,6 @@ router.get('/:id/actions', (req, res, next) => {
 router.post('/', validateProject, (req, res, next) => {
   Project.insert(req.body)
   .then(project => {
-    project.completed = project.completed ? true : false
     res.status(201).json(project)
   })
   .catch(err => next(err))

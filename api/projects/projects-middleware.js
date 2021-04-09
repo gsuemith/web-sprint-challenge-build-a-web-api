@@ -6,7 +6,6 @@ const checkDatabase = async (req, res, next) => {
   try {
     const project = await Project.get(id)
     if (project) {
-      project.completed = project.completed ? true : false;
       req.project = project
       next()
     } else {
