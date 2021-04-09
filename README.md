@@ -124,6 +124,7 @@ After finishing your required elements, you can push your work further. These go
 **IMPORTANT:** Do not break any MPV functionality by adding "stretch" code! Keep an eye on those tests!
 
 - [ ] Deploy the API to Heroku.
+https://web40-unit4-sprint1-garrick.herokuapp.com/
 - [ ] Configure the API to support environment variables.
 - [ ] Use middleware for validation of incoming data.
 
